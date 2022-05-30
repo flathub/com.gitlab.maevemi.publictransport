@@ -12,13 +12,13 @@
         "--share=network",
         "--share=ipc",
         "--socket=fallback-x11",
-        "--socket=wayland"
+        "--socket=wayland",
+        "--env=RUST_LOG=publictransport=info,"
     ],
     "build-options" : {
         "append-path" : "/usr/lib/sdk/rust-stable/bin",
         "env" : {
-            "RUST_BACKTRACE" : "1",
-            "RUST_LOG" : "publictransport=info"
+            "RUST_BACKTRACE" : "1"
         }
     },
     "cleanup" : [
@@ -40,8 +40,8 @@
             "sources" : [
                 {
                     "type" : "archive",
-                    "url" : "https://gitlab.com/maevemi/publictransport-releases/-/raw/main/releases/publictransport-0.1.1.tar.xz",
-                    "sha256" : "e03dc8106e335933f307177d8d3a3a91fbaadea57239927d1ed536f467528c7e"
+                    "url" : "https://gitlab.com/maevemi/publictransport-releases/-/raw/main/releases/publictransport-0.2.1.tar.xz",
+                    "sha256" : "e8a3e0c881a809ebb18e9338a3ab9a92c946b0e5712721ed5abb5eb5518524c5"
                 }
             ]
         }
