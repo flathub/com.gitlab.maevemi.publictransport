@@ -1,49 +1,65 @@
 {
-    "app-id" : "com.gitlab.maevemi.publictransport",
-    "runtime" : "org.gnome.Platform",
-    "runtime-version" : "42",
-    "sdk" : "org.gnome.Sdk",
-    "sdk-extensions" : [
-        "org.freedesktop.Sdk.Extension.rust-stable"
-    ],
-    "command" : "publictransport",
-    "finish-args" : [
-        "--device=dri",
-        "--share=network",
-        "--share=ipc",
-        "--socket=fallback-x11",
-        "--socket=wayland",
-        "--env=RUST_LOG=publictransport=info,"
-    ],
-    "build-options" : {
-        "append-path" : "/usr/lib/sdk/rust-stable/bin",
-        "env" : {
-            "RUST_BACKTRACE" : "1"
-        }
-    },
-    "cleanup" : [
-        "/include",
-        "/lib/pkgconfig",
-        "/man",
-        "/share/doc",
-        "/share/gtk-doc",
-        "/share/man",
-        "/share/pkgconfig",
-        "*.la",
-        "*.a"
-    ],
-    "modules" : [
+  "app-id": "com.gitlab.maevemi.publictransport",
+  "runtime": "org.gnome.Platform",
+  "runtime-version": "43",
+  "sdk": "org.gnome.Sdk",
+  "sdk-extensions": [
+    "org.freedesktop.Sdk.Extension.rust-stable"
+  ],
+  "command": "publictransport",
+  "finish-args": [
+    "--share=network",
+    "--share=ipc",
+    "--socket=fallback-x11",
+    "--device=dri",
+    "--socket=wayland"
+  ],
+  "build-options": {
+    "append-path": "/usr/lib/sdk/rust-stable/bin",
+    "env": {
+      "RUST_BACKTRACE": "1"
+    }
+  },
+  "cleanup": [
+    "/include",
+    "/lib/pkgconfig",
+    "/man",
+    "/share/doc",
+    "/share/gtk-doc",
+    "/share/man",
+    "/share/pkgconfig",
+    "*.la",
+    "*.a"
+  ],
+  "modules": [
+    {
+      "name": "libshumate",
+      "buildsystem": "meson",
+      "config-opts": [
+        "-Dgir=false",
+        "-Dvapi=false",
+        "-Dgtk_doc=false",
+        "-Dlibsoup3=true"
+      ],
+      "sources": [
         {
-            "name" : "publictransport",
-            "builddir" : true,
-            "buildsystem" : "meson",
-            "sources" : [
-                {
-                    "type" : "archive",
-                    "url" : "https://gitlab.com/maevemi/publictransport-releases/-/raw/main/releases/publictransport-0.2.2.tar.xz",
-                    "sha256" : "c56e7d5c924dcf9b5b96ed434e74b2f209ae2c8da83c341c6337b09268c396fc"
-                }
-            ]
+          "type": "git",
+          "url": "https://gitlab.gnome.org/GNOME/libshumate/",
+          "tag": "1.0.1"
         }
-    ]
+      ]
+    },
+    {
+      "name": "publictransport",
+      "builddir": true,
+      "buildsystem": "meson",
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://gitlab.com/maevemi/publictransport-releases/-/raw/main/releases/publictransport-0.3.0.tar.xz",
+          "sha256": "fad0973d6bb4e1ac2db0874a05d48c2c99cb196fcc345a95bd9ab1e90fabfd1e"
+        }
+      ]
+    }
+  ]
 }
