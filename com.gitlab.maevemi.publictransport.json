@@ -56,8 +56,8 @@
       "sources": [
         {
           "type": "archive",
-          "url": "https://gitlab.com/maevemi/publictransport-releases/-/raw/main/releases/publictransport-0.4.2.tar.xz",
-          "sha256": "ad52a254ca90e4906abdb9a41a9dfa3f459ba348b35f8a33b8c829c6e6d35302"
+          "url": "https://gitlab.com/maevemi/publictransport-releases/-/raw/main/releases/publictransport-0.4.3.tar.xz",
+          "sha256": "035ea2fd428b18383af1567bd538bcff670456aa7de61917395b3fbbc4e98fd3"
         }
       ]
     }
